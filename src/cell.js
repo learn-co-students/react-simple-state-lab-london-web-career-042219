@@ -10,17 +10,12 @@ export default class Cell extends Component {
   }
 
   toggleColor = () => {
-    if (this.state.switched === false) {
-      this.setState({
-        color: "#333",
-        switched: true
-      });
-    } else {
-      this.setState({
-        color: "#100",
-        switched: false
-      });
-    }
+    const min = 1;
+    const max = 9.99;
+    const number = Math.round((Math.random() * (max - min) + min) * 100);
+    this.setState({
+      color: `#${number}`
+    });
   };
 
   render() {
