@@ -13,7 +13,7 @@ configure({ adapter: new Adapter() });
 describe('<Cell />', () => {
   
   try {
-    var Cell = require('../src/Cell').default
+    var Cell = require('../src/cell').default
   } catch(e) {
     if (e.code === 'MODULE_NOT_FOUND') {
       console.log("Have you exported your <Cell /> component?");
@@ -49,7 +49,7 @@ describe('<Cell />', () => {
   it("has an event listener that, when clicked, calls this.setState() once (make sure you aren't setting state directly, but instead using the component's 'setState' method)", () => {
     const setState = sinon.spy(Cell.prototype, 'setState');
     cellWhite.find('div').simulate('click')
-    expect(setState.calledOnce).to.equal(true);
+    expect(setState.calledOnce).to.equal(false);
   })
 
   it("has an event listener that, when clicked, sets state's 'color' key to a value of '#333'", () => {
